@@ -23,7 +23,7 @@ const Game = () => {
     setBullets([]);
     setEnemies([]);
     setScore(0);
-    setLives(3);
+    setLives(100);
     setGameRunning(true);
   };
 
@@ -118,7 +118,7 @@ const Game = () => {
       {!gameRunning && (
         <div className="overlay">
           <h2>{lives === 0 ? 'Край на играта' : 'Игра Стрелец'}</h2>
-          <button onClick={resetGame}>Старт</button>
+          <button className="start-button" onClick={resetGame}>Старт</button>
         </div>
       )}
       <Player position={playerPosition} />
@@ -128,5 +128,6 @@ const Game = () => {
     </div>
   );
 };
+
 
 export default Game;
