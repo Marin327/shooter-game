@@ -1,4 +1,4 @@
-// src/components/Player.js
+
 import React from 'react';
 
 const Player = ({ position, onMove }) => {
