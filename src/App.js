@@ -4,8 +4,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Игра Стрелец 🚀</h1>
+    <div className="app-container">
+      <div className="header">
+        <h1 className="title">Игра Стрелец 🚀</h1>
+        <p className="subtitle">Присъедини се към екшън приключението!</p>
+      </div>
       <Game />
     </div>
   );
