@@ -1,44 +1,44 @@
-/* Основен стил за играта */
+
 .game {
     position: relative;
     width: 500px;
     height: 400px;
     margin: 40px auto;
-    background-image: url('public/3.png'); /* Фонова снимка от папка public */
+    background-image: url('public/3.png'); 
     background-size: cover;
     background-position: center;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); /* Силна и неонова сянка за модерно излъчване */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); 
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
     z-index: 1;
-    transition: transform 0.5s ease-in-out; /* Плавно разширение на игралния контейнер */
+    transition: transform 0.5s ease-in-out; 
   }
   
   .game:hover {
-    transform: scale(1.05); /* Леко увеличение на контейнера при hover */
+    transform: scale(1.05); 
   }
   
-  /* Играч */
+
   .player {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-image: url('public/0.png'); /* Играч от public папката */
+    background-image: url('public/0.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Сенки за играча */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); 
     z-index: 2;
-    transition: transform 0.2s ease-out; /* Плавни движения на играча */
+    transition: transform 0.2s ease-out; 
   }
   
   .player:hover {
-    transform: scale(1.1); /* Леко уголемяване при hover */
+    transform: scale(1.1); 
   }
   
-  /* Куршум */
+
   .bullet {
     position: absolute;
     width: 8px;
@@ -52,10 +52,10 @@
   
   .bullet:hover {
     background: linear-gradient(45deg, #ff2d55, #ff5e99);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 1); /* Неонов ефект при hover */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1); 
   }
   
-  /* Враг */
+
   .enemy {
     position: absolute;
     width: 60px;
@@ -68,11 +68,10 @@
   }
   
   .enemy:hover {
-    transform: scale(1.1); /* Леко уголемяване на врага при hover */
-    box-shadow: 0 0 30px rgba(255, 0, 0, 1); /* Неонов ефект при hover */
+    transform: scale(1.1); 
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1); 
   }
-  
-  /* Точки и животи */
+ 
   .score {
     position: absolute;
     top: 20px;
@@ -82,11 +81,10 @@
     font-weight: bold;
     text-shadow: 0 0 8px #00f0ff, 0 0 20px #00f0ff;
     z-index: 3;
-    font-family: 'Orbitron', sans-serif; /* Модерен шрифт за точки */
-    animation: scorePulse 1.5s infinite alternate; /* Пулсиращ ефект */
+    font-family: 'Orbitron', sans-serif; 
+    animation: scorePulse 1.5s infinite alternate; 
   }
   
-  /* Анимация за пулсиращи точки */
   @keyframes scorePulse {
     0% {
       transform: scale(1);
@@ -98,9 +96,9 @@
     }
   }
   
-  /* За фонова снимка и текст */
+ 
   .background {
-    background-image: url('public/1.avif'); /* Път към изображението */
+    background-image: url('public/1.avif'); 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -116,7 +114,7 @@
     animation: backgroundAnimation 15s infinite alternate;
   }
   
-  /* Анимация за фоновото изображение */
+
   @keyframes backgroundAnimation {
     0% {
       transform: scale(1);
@@ -129,7 +127,7 @@
     }
   }
   
-  /* Стилове за основния текст */
+
   .container {
     position: absolute;
     top: 50%;
@@ -146,7 +144,6 @@
     cursor: pointer;
   }
   
-  /* Анимация за текста */
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -158,14 +155,12 @@
     }
   }
   
-  /* Допълнителен стил за фокусиран ефект (когато мишката е върху текста) */
   .container:hover {
     transform: translate(-50%, -50%) scale(1.1);
     cursor: pointer;
-    animation: none; /* Изключване на анимацията при hover */
+    animation: none;
   }
-  
-  /* Основни стилове на App */
+ 
 * {
     margin: 0;
     padding: 0;
@@ -216,7 +211,6 @@
     text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
   }
   
-  /* Анимация за появата на заглавието */
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -228,7 +222,7 @@
     }
   }
   
-  /* Стилове за контейнери на играта */
+
   h1,
   h2,
   h3,
@@ -236,8 +230,7 @@
     text-align: center;
     color: #fff;
   }
-  
-  /* Прокачен стил на контейнера за играта */
+ 
   .game-container {
     position: relative;
     padding: 30px;
@@ -246,7 +239,6 @@
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
   }
   
-  /* Стилизация на контейнера за динамични елементи */
   .game-container h3 {
     color: #fff;
     margin-bottom: 20px;
@@ -272,7 +264,7 @@
     transform: scale(1.1);
   }
   
-  /* Примерни стилове за начални бутони */
+
   .start-button:active {
     transform: scale(0.98);
   }
@@ -294,7 +286,6 @@
     transform: scale(1.05);
   }
   
-  /* Подобрения за скролиране */
   .game-container::-webkit-scrollbar {
     width: 12px;
   }
@@ -308,7 +299,7 @@
     background: #ff2d55;
   }
   
-  /* Стилове за основния елемент в играта */
+
   .game-container .game {
     position: relative;
     height: 400px;
@@ -317,27 +308,27 @@
     border-radius: 12px;
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
   }
-/* Стилове за кръглия бутон Старт */
+
+
 .start-button {
     position: fixed;
-    bottom: 30px;  /* Поставяме бутона на 30px отдолу */
+    bottom: 30px;  
     left: 50%;
-    transform: translateX(-50%);  /* Центрираме бутона по хоризонтала */
-    width: 80px;
+    transform: translateX(-50%);  
     height: 80px;
-    background-color: #00aaff; /* Син фон */
+    background-color: #00aaff; 
     border: none;
-    border-radius: 50%;  /* Кръгла форма */
+    border-radius: 50%;  
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
-    line-height: 80px; /* Центрираме текста вертикално */
+    line-height: 80px; 
     cursor: pointer;
     box-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
     transition: all 0.3s ease;
 }    
-/* Стилове за overlay (прозорец с информация) */
+
 .overlay {
   position: absolute;
   top: 50%;
@@ -347,14 +338,14 @@
   color: #ffffff;
   font-size: 2rem;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.7); /* Полупрозрачен фон */
+  background: rgba(0, 0, 0, 0.7); 
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 0 30px rgba(0, 170, 255, 0.8); /* Ярка сянка за ефект */
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.8); 
   z-index: 10;
 }
 
-/* Стилове за overlay (прозорец с информация) */
+
 .overlay {
   position: absolute;
   top: 50%;
@@ -364,48 +355,48 @@
   color: #ffffff;
   font-size: 2rem;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.7); /* Полупрозрачен фон */
+  background: rgba(0, 0, 0, 0.7); 
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 0 30px rgba(0, 170, 255, 0.8); /* Ярка сянка за ефект */
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.8); 
   z-index: 10;
 }
 
-/* Стилове за бутона Старт */
+
 .start-button {
   position: relative;
   margin-top: 20px;
   width: 150px;
   height: 50px;
-  background-color: #00aaff; /* Син фон */
+  background-color: #00aaff; 
   border: none;
   border-radius: 25px;
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
-  line-height: 50px; /* Центрираме текста вертикално */
+  line-height: 50px; 
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(0, 170, 255, 0.6); /* Неоново сияние */
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.6);
   transition: all 0.3s ease;
-  z-index: 15; /* Поставяме бутона на най-висок слой */
+  z-index: 15; 
 }
 
-/* Ефект при hover */
+
 .start-button:hover {
   background-color: #0088cc;
   box-shadow: 0 0 30px rgba(0, 136, 204, 1);
-  transform: scale(1.1); /* Леко увеличаване на размера при hover */
+  transform: scale(1.1); 
 }
 
-/* Ефект при натискане (active) */
+
 .start-button:active {
   background-color: #0077b3;
   box-shadow: 0 0 15px rgba(0, 119, 179, 1);
-  transform: scale(0.95); /* Леко намаляване на размера при натискане */
+  transform: scale(0.95);
 }
 
-/* Анимация на overlay */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -418,6 +409,6 @@
 }
 
 .overlay {
-  animation: fadeIn 1s ease-out; /* Анимация на overlay за плавен вход */
+  animation: fadeIn 1s ease-out; 
 }
 
