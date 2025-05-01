@@ -1,53 +1,421 @@
-/* Основен стил за играта */
+
 .game {
-  position: relative;
-  width: 500px;
-  height: 400px;
-  margin: 40px auto;
-  background: radial-gradient(ellipse at center, #1e1e2f 0%, #0d0d1a 100%);
-  border: 2px solid #3affff;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00f0ff;
-  overflow: hidden;
-  font-family: 'Orbitron', sans-serif;
-}
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: 40px auto;
+    background-image: url('public/3.png'); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); 
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .game:hover {
+    transform: scale(1.05); 
+  }
+  
 
-/* Играч */
-.player {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #00ff99, #00ccff);
-  border-radius: 8px;
-  box-shadow: 0 0 12px #00ffcc;
-  transition: transform 0.1s ease-in-out;
-}
+  .player {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url('public/0.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); 
+    z-index: 2;
+    transition: transform 0.2s ease-out; 
+  }
+  
+  .player:hover {
+    transform: scale(1.1); 
+  }
+  
 
-/* Куршум */
-.bullet {
-  position: absolute;
-  width: 6px;
-  height: 20px;
-  background: #ff2d55;
-  box-shadow: 0 0 6px #ff5e99;
-  border-radius: 3px;
-}
+  .bullet {
+    position: absolute;
+    width: 8px;
+    height: 25px;
+    background: linear-gradient(45deg, #ff5e99, #ff2d55);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  
+  .bullet:hover {
+    background: linear-gradient(45deg, #ff2d55, #ff5e99);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1); /* Неонов ефект при hover */
+  }
+  
 
-/* Враг */
-.enemy {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(to bottom, #ff4d4d, #990000);
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ff1a1a;
-}
+  .enemy {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(to bottom, #ff4d4d, #990000);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 26, 26, 0.9);
+    z-index: 2;
+    transition: transform 0.2s ease;
+  }
+  
+  .enemy:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1); 
+  }
+  
 
-/* Точки и животи */
-.score {
+  .score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 8px #00f0ff, 0 0 20px #00f0ff;
+    z-index: 3;
+    font-family: 'Orbitron', sans-serif; 
+    animation: scorePulse 1.5s infinite alternate; 
+  }
+  
+
+  @keyframes scorePulse {
+    0% {
+      transform: scale(1);
+      text-shadow: 0 0 10px #00f0ff, 0 0 15px #00f0ff;
+    }
+    100% {
+      transform: scale(1.1);
+      text-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+    }
+  }
+  
+ 
+  .background {
+    background-image: url('public/1.avif'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Arial', sans-serif;
+    z-index: 0;
+    animation: backgroundAnimation 15s infinite alternate;
+  }
+  
+
+  @keyframes backgroundAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 2s ease-out;
+    z-index: 3;
+    cursor: pointer;
+  }
+  
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  .container:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    cursor: pointer;
+    animation: none;
+  }
+  
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .app-container {
+    position: relative;
+    text-align: center;
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+    padding: 30px;
+    max-width: 600px;
+    min-width: 500px;
+    width: 100%;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    color: #00f0ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+    font-weight: 500;
+    margin-top: 10px;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
+  }
+  
+  /* Анимация за появата на заглавието */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-align: center;
+    color: #fff;
+  }
+  
+
+  .game-container {
+    position: relative;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  }
+  
+
+  .game-container h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .game-container .start-button {
+    background: linear-gradient(45deg, #ff5e99, #ff2d55);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+  }
+  
+  .game-container .start-button:hover {
+    background: linear-gradient(45deg, #ff2d55, #ff5e99);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+  
+  .start-button:active {
+    transform: scale(0.98);
+  }
+  
+  .game-container button {
+    padding: 15px 30px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff1a1a;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+  
+  .game-container button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+  }
+  
+
+  .game-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .game-container::-webkit-scrollbar-thumb {
+    background: #00f0ff;
+    border-radius: 10px;
+  }
+  
+  .game-container::-webkit-scrollbar-thumb:hover {
+    background: #ff2d55;
+  }
+  
+
+  .game-container .game {
+    position: relative;
+    height: 400px;
+    background: url('public/3.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+  }
+
+.start-button {
+    position: fixed;
+    bottom: 30px;  
+    left: 50%;
+    transform: translateX(-50%);  
+    width: 80px;
+    height: 80px;
+    background-color: #00aaff; 
+    border: none;
+    border-radius: 50%; 
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px; 
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
+    transition: all 0.3s ease;
+}    
+
+.overlay {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   color: #ffffff;
-  font-size: 16p
+  font-size: 2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.8);
+  z-index: 10;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.7); 
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.8); 
+  z-index: 10;
+}
+
+
+.start-button {
+  position: relative;
+  margin-top: 20px;
+  width: 150px;
+  height: 50px;
+  background-color: #00aaff; 
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px; 
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.6); 
+  transition: all 0.3s ease;
+  z-index: 15;
+}
+
+
+.start-button:hover {
+  background-color: #0088cc;
+  box-shadow: 0 0 30px rgba(0, 136, 204, 1);
+  transform: scale(1.1);
+}
+
+
+.start-button:active {
+  background-color: #0077b3;
+  box-shadow: 0 0 15px rgba(0, 119, 179, 1);
+  transform: scale(0.95);
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.overlay {
+  animation: fadeIn 1s ease-out; 
 }
